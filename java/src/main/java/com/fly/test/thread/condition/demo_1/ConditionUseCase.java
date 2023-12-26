@@ -1,4 +1,4 @@
-package com.fly.test.juc.condition.demo_1;
+package com.fly.test.thread.condition.demo_1;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

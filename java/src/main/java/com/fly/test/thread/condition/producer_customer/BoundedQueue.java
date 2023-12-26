@@ -1,4 +1,4 @@
-package com.fly.test.juc.condition.producer_customer;
+package com.fly.test.thread.condition.producer_customer;
 
 import java.util.LinkedList;
 import java.util.concurrent.locks.Condition;

@@ -1,28 +1,26 @@
-package com.fly.test.juc.cyclic_barrier.demo_4;
+package com.fly.test.thread.cyclic_barrier.demo_3;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
-public class TestReuse {
-
+public class TestAwait {
 	public static void main(String[] args) {
 		int N = 4;
 		CyclicBarrier barrier = new CyclicBarrier(N);
 
 		for (int i = 0; i < N; i++) {
-			new Writer(barrier).start();
-		}
-
-		try {
-			Thread.sleep(25000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		System.out.println("CyclicBarrier重用");
-
-		for (int i = 0; i < N; i++) {
-			new Writer(barrier).start();
+			if (i < N - 1)
+				new Writer(barrier).start();
+			else {
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				new Writer(barrier).start();
+			}
 		}
 	}
 
@@ -39,8 +37,11 @@ public class TestReuse {
 			try {
 				Thread.sleep(5000); // 以睡眠来模拟写入数据操作
 				System.out.println("线程" + Thread.currentThread().getName() + "写入数据完毕，等待其他线程写入完毕");
-
-				cyclicBarrier.await();
+				try {
+					cyclicBarrier.await(2000, TimeUnit.MILLISECONDS);
+				} catch (TimeoutException e) {
+					e.printStackTrace();
+				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} catch (BrokenBarrierException e) {
@@ -49,5 +50,4 @@ public class TestReuse {
 			System.out.println(Thread.currentThread().getName() + "所有线程写入完毕，继续处理其他任务...");
 		}
 	}
-	
 }

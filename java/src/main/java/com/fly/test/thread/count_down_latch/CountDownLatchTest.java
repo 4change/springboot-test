@@ -1,4 +1,4 @@
-package com.fly.test.juc.count_down_latch.demo_1;
+package com.fly.test.thread.count_down_latch;
 
 import java.util.concurrent.CountDownLatch;
 

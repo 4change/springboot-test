@@ -1,4 +1,4 @@
-package com.fly.test.juc.cyclic_barrier.demo_5;
+package com.fly.test.thread.cyclic_barrier.demo_5;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
