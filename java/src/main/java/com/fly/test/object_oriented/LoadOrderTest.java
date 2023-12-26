@@ -1,4 +1,4 @@
-package com.fly.test.base;
+package com.fly.test.object_oriented;
 
 class A {
     // 构造函数
