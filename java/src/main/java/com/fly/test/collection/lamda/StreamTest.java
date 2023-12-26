@@ -1,4 +1,6 @@
-package com.fly.test.collection.lamda.test;
+package com.fly.test.collection.lamda;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +12,10 @@ import java.util.stream.Stream;
  * @Auther: gongxiangfei
  * @Date: 2020/11/5 11:14
  */
-public class Test {
+public class StreamTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
 
         List<String> sources = new ArrayList<>();
         sources.add("A");
