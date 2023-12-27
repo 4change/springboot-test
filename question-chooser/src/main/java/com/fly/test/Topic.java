@@ -1,4 +1,4 @@
-package com.fly.test.question_chooser;
+package com.fly.test;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
