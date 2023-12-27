@@ -1,22 +1,26 @@
 package com.fly.test.question_chooser;
 
+import org.apache.commons.math3.util.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class QuestionChooser {
 
     public static void main(String[] args) {
-        List<Topic> topicList = new ArrayList<>();
-        topicList.add(new Topic("分布式", 1, 2));
-        topicList.add(new Topic("MySQL", 2, 2));
-        topicList.add(new Topic("Redis", 3, 2));
-        topicList.add(new Topic("消息队列", 4, 2));
-        topicList.add(new Topic("设计模式", 5, 2));
-        topicList.add(new Topic("Java", 6, 2));
-        topicList.add(new Topic("操作系统", 7, 2));
+        List<Pair<String,Double>> list = new ArrayList<>();
+        list.add(new Pair<>("分布式", 25.0));
+        list.add(new Pair<>("Java", 20.0));
+        list.add(new Pair<>("数据库", 15.0));
+        list.add(new Pair<>("Redis", 15.0));
+        list.add(new Pair<>("消息队列", 10.0));
+        list.add(new Pair<>("设计模式", 5.0));
+        list.add(new Pair<>("操作系统", 5.0));
+        list.add(new Pair<>("计算机网络", 5.0));
 
-        Random random = new Random();
+        WeightRandom<String, Double> weightRandom = new WeightRandom<>(list);
+        Object random = weightRandom.random();
+        System.out.println("----Key----"+random);
     }
 
 }
