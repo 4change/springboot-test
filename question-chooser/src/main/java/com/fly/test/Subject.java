@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
-public class Topic {
+public class Subject {
 
     private Integer id;
 
