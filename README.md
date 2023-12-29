@@ -2,7 +2,6 @@
 - question_chooser
   - 需求规划
     - 支持 Java/Golang 两种语言的面试题随机选择；
-    - 引入MySQL数据库；
     - 日志配置
     - Jenkins自动发布；
     - Docker部署；
